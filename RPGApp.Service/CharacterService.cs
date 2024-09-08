@@ -15,11 +15,9 @@ namespace RPGApp.Service
     public class CharacterService : ICharacterService
     {
         private readonly ICharacterRepository _characterRepository;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public CharacterService(ICharacterRepository characterRepository, IHttpContextAccessor httpContextAccessor)
+        public CharacterService(ICharacterRepository characterRepository)
         {
             _characterRepository = characterRepository;
-            _httpContextAccessor = httpContextAccessor; 
         }
 
         public async Task<ServiceResponse<List<GetCharacterResponseDto>>> AddCharacter(AddCharacterRequestDto newCharacter, int userId)
